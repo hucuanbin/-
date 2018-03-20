@@ -1,0 +1,22 @@
+{
+  "name": "images",
+  "description": "",
+  "main": "http://p4p.0577site.com/",
+  "authors": [
+    "hucuanbin <604747983@qq.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.7"
+  },
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/lib",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/my.css" />
+</head>
+<body>
+
+    <div class="p-10">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">URL</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">post</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content m-t-10">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <div class="form-group row">
+                    <div class="col-xs-6">
+                        <label for="exampleInputPassword1">快捷选择</label>
+                        <select class="form-control QuickSelection" data-tpye="wangye">
+                            <option value="loading" selected>数据加载中</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="exampleInputPassword1">页面选择</label>
+                        <select class="form-control QuickSelection" data-tpye="neirong">
+                            <option value="liebiao" selected>列表页</option>
+                            <option value="xiangqing">详情页</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">页面地址（页码用??代替）</label>
+                    <!--<a href="javascript:void(0)" id="login" >点击登陆——(将下载完整图片)</a>-->
+                    <input type="text" class="form-control" id="html_Url" placeholder="例如:http://588ku.com/sucai/0-default-0-0-katong-??/">
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-6">
+                        <label for="exampleInputPassword1">对应节点-列表页(需进入网址连接节点或下载节点)</label>
+                        <input type="text" class="form-control" id="html_dom1" placeholder="例如:#id,.name">
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="exampleInputPassword1">对应属性(一般为详情地址属性或图片属性)</label>
+                        <input type="text" class="form-control" id="html_dom1_attr" placeholder="例如:href data-url">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-6">
+                        <label for="exampleInputPassword1">深入节点-详情页(下载节点,可不填)</label>
+                        <input type="text" class="form-control" id="html_dom2" placeholder="例如:#id,.name">
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="exampleInputPassword1">对应属性(下载节点,可不填)</label>
+                        <input type="text" class="form-control" id="html_dom2_attr" placeholder="例如:href data-url">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">
+                        下载目录(默认项目根目录中的Img文件夹)
+                        <input class="file3" type="file" id="thesaurusExport" nwsaveas="选择目录(勿修改)" style="display:inline-block;" />
+                    </label>
+                    <input type="text" class="form-control" id="html_dowmUlr" placeholder="例如:钱库/青花">
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-6">
+                        <label for="exampleInputPassword1">开始下载页码</label>
+                        <input type="number" class="form-control" id="html_beforNum" placeholder="">
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="exampleInputPassword1">结束页码（-1为最后一页,会抓取结束页面的图片）</label>
+                        <input type="number" class="form-control" id="html_aftrNum" placeholder="例如:-1 则为到最后一个">
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="html_subuit" class="btn btn-default">开始查找</button>
+                    <button type="button" id="html_stop" class="btn btn-default">停止</button>
+                    <!--<div class="checkbox">
+                        <label>
+                            <input id="logngFlag" type="checkbox"  />
+                            登陆成功
+                        </label>
+                    </div>-->
+                </div>
+                <div>
+                    <p>提示信息:<span id="html_success_message"></span></p>
+                    <p>请求失败页码:<span id="html_error_message"></span></p>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">
+                <div class="form-group row">
+                    <div class="col-xs-6">
+                        <label for="exampleInputPassword1">快捷选择</label>
+                        <select class="form-control post_QuickSelection" data-tpye="wangye">
+                            <option value="loading" selected>数据加载中</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="exampleInputPassword1">页面选择</label>
+                        <select class="form-control post_QuickSelection" data-tpye="neirong">
+                            <option value="liebiao" selected>列表页</option>
+                            <option value="xiangqing">详情页</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-6">
+                        <label>抓取方式</label>
+                        <select class="form-control" id="post_mode" data-tpye="neirong">
+                            <option value="search" selected>搜索关键词</option>
+                            <option value="custom">自定义</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-6">
+                        <label>输入链接或关键词</label>
+                        <input type="text" class="form-control" id="post_modeUrl" placeholder="自定义输入链接,否则输入关键词">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">
+                        下载目录(默认项目根目录中的Img文件夹)
+                        <input class="file3" type="file" id="post_thesaurusExport" nwsaveas="选择目录(勿修改)" style="display:inline-block;" />
+                    </label>
+                    <input type="text" class="form-control" id="post_dowmUlr" placeholder="例如:钱库/青花">
+                </div>
+                <div class="form-group row">
+                    <div class="col-xs-6">
+                        <label for="exampleInputPassword1">开始下载页码</label>
+                        <input type="number" class="form-control" id="post_beforNum" placeholder="">
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="exampleInputPassword1">结束页码（-1为最后一页,会抓取结束页面的图片）</label>
+                        <input type="number" class="form-control" id="post_aftrNum" placeholder="例如:-1 则为到最后一个">
+                    </div>
+                </div>
+                <div>
+                    <button type="button" id="post_subuit" class="btn btn-default">开始查找</button>
+                    <button type="button" id="post_stop" class="btn btn-default">停止</button>
+                </div>
+                <div>
+                    <p>提示信息:<span id="post_success_message"></span></p>
+                    <p>请求失败页码:<span id="post_error_message"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 登陆模态框 -->
+    <!-- Modal -->
+    <style>
+        .modal.fade{
+            display:block !important;
+            top:100%;
+            opacity:0;
+        } 
+    </style>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                </div>
+                <div class="modal-body">
+                   <iframe src="http://huaban.com"></iframe>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="js/my.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+    <script>
+        //快捷方式选择
+        // http://588ku.com/sucai/0-default-0-0-xiaricuxiao-??/ http://588ku.com/sucai/0-default-0-52-xiaricuxiao-??/
+        // .picture-list .lazy data-original // .picture-list .img-show>a   href
+        //  .img-center.sucai-image-center img src
+
+        //千图
+        //  http://www.58pic.com/tupian/jiandangjie-0-0-??.html
+        // .card-img img  data-original,data-url,src
+
+
+        //http://www.zcool.com.cn
+        //http://www.zcool.com.cn/search/content?type=0&field=0&other=0&sort=5&word=LOGO&recommend=0&requestId=requestId_1498890907243&p=??
+        //.card-img img src
+
+        //摄图网
+        //http://699pic.com/people-??-0-0-0.html
+        //.swipeboxEx.list img data-original
+
+        //https://huaban.com/search/?q=%E6%A4%8D%E7%89%A9
+
+        //.pin.wfc.ad [data-baiduimageplus-ignore] src
+    </script>
+</body>
+</html>

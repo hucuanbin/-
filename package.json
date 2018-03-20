@@ -1,0 +1,29 @@
+{
+  "name": "images",
+  "main": "view/index.html",
+  "node-remote": "http://*.0577site.com/",
+  "bg-script": "app/js/init.js",
+  "chromium-args": "--disable-web-security",
+  "version": "0.0.1",
+  "devDependencies": {
+    "del": "*",
+    "gulp": "*",
+    "gulp-uglify": "*",
+    "pump": "*"
+  },
+  "window": {
+    "title": "小欣外贸助手",
+    "position": "center",
+    "icon": "app/images/logo48.png",
+    "width": 1240,
+    "height": 800,
+    "min-width": 1240,
+    "min-height": 800,
+    "toolbar": true,
+    "frame": true,
+    "resizable": true,
+    "min_width": 800
+  },
+  "dependencies": {
+  }
+}

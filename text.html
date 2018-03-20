@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div class="location">
+        <p>
+            <a href="" target="_blank">$SiteName</a>
+            <a href="http://supply.hbzhan.com/" target="_blank">供应网</a>
+            #if($T!=0)
+            #foreach($item in $NV_getClassnew)
+            #if(${item.ID}==$T)
+            <a href="supply.hbzhan.com/sale/t${item.ID}.html">
+                #elseif($velocityCount == 3)
+                <a href="supply.hbzhan.com/sale/t${item.ID}.html" class="last" target="_blank">
+                    #else
+                    <a href="supply.hbzhan.com/sale/t${item.ID}.html" target="_blank">
+                        #end
+                        $item.Name
+                    </a>
+                    #end
+        </p>
+        #else
+        <a class="last">
+            $k_value
+        </a>
+        #end
+        <span>共找到<b>$!NV_SupplyInfo_InfoSPDeatil_Counts</b>条 $k_value 产品</span>
+    </div>
+</body>
+</html>
